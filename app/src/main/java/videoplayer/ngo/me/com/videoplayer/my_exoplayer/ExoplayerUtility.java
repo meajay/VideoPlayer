@@ -102,10 +102,8 @@ public class ExoplayerUtility {
                             if (!SystemUtils.isNetworkAvailable(context)) {
                                 UIUtils.showToast(context, context.getString(R.string.internet_disconnected_play_offline));
                             }
-                            //   UIUtils.showProgreeBar(context,true);
                             break;
                         case ExoPlayer.STATE_READY:
-                            // UIUtils.showProgreeBar(context,false);
                             break;
                         case ExoPlayer.STATE_ENDED:
                             exoPlayer.seekTo(0);
