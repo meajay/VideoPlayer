@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 
 import com.google.android.exoplayer2.ExoPlayer;
 import com.google.android.exoplayer2.ui.SimpleExoPlayerView;
@@ -24,6 +25,8 @@ public class VideoActivity extends AppCompatActivity implements ExoStateChanged 
     SimpleExoPlayerView exoPlayerView;
     @BindView(R.id.exo_fullscreen)
     ImageView fullScreenButton;
+    @BindView(R.id.progress_bar)
+    ProgressBar progressBar;
 
     private ExoplayerUtility exoplayerUtility;
     private boolean playWhenReady = false;
@@ -53,11 +56,11 @@ public class VideoActivity extends AppCompatActivity implements ExoStateChanged 
     @Override
     public void onResume() {
         super.onResume();
-        if ((Util.SDK_INT > 23)) {
+        if ((Util.SDK_INT >= 23)) {
             exoplayerUtility.initializePlayer();
         }
         exoplayerUtility.hideSystemUi(exoPlayerView);
-
+        progressBar.setVisibility(View.VISIBLE);
         if (isFullScreen) {
             fullScreenButton.setImageDrawable(getDrawable(R.drawable.ic_fullscreen_skrink));
             openFullscreenDialog();
@@ -79,7 +82,7 @@ public class VideoActivity extends AppCompatActivity implements ExoStateChanged 
     @Override
     public void onPause() {
         super.onPause();
-        if (Util.SDK_INT > 23) {
+        if (Util.SDK_INT >= 23) {
             exoplayerUtility.releasePlayer();
         }
     }
@@ -87,7 +90,7 @@ public class VideoActivity extends AppCompatActivity implements ExoStateChanged 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        if (Util.SDK_INT > 23) {
+        if (Util.SDK_INT >= 23) {
             exoplayerUtility.destroyPlayer();
         }
     }
@@ -138,10 +141,13 @@ public class VideoActivity extends AppCompatActivity implements ExoStateChanged 
     public void onExoPlayerStateChanged(int i) {
         switch (i) {
             case ExoPlayer.STATE_IDLE:
+                progressBar.setVisibility(View.GONE);
                 break;
             case ExoPlayer.STATE_BUFFERING:
+                progressBar.setVisibility(View.VISIBLE);
                 break;
             case ExoPlayer.STATE_READY:
+                progressBar.setVisibility(View.GONE);
                 break;
             case ExoPlayer.STATE_ENDED:
                 break;
