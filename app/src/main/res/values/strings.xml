@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">VideoPlayer</string>
+    <string name="internet_not_available">Internet not available</string>
+    <string name="internet_disconnected_play_offline">Playing video offline.</string>
 </resources>

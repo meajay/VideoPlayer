@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_gravity="bottom"
     android:background="#CC000000"
     android:layoutDirection="ltr"
@@ -11,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
-        android:layout_marginRight="15dp">
+        android:layout_marginRight="5dp">
 
         <TextView
             android:id="@id/exo_position"
@@ -29,12 +30,15 @@
             android:layout_width="match_parent"
             android:layout_toEndOf="@+id/exo_position"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="55dp"
+            android:layout_marginEnd="70dp"
             android:layout_marginStart="5dp"
             android:clickable="false"
             android:focusable="false"
             android:focusableInTouchMode="false"
-            android:visibility="visible" />
+            android:visibility="visible"
+            app:played_color="#ff0000"
+            app:buffered_color="#FFBEBEBE"
+            app:unplayed_color="#867f7f"/>
 
         <TextView
             android:id="@id/exo_duration"
@@ -49,12 +53,12 @@
 
         <ImageView
             android:id="@+id/exo_fullscreen"
-            android:layout_width="18dp"
-            android:layout_height="18dp"
-            android:padding="2dp"
-            android:layout_marginTop="5dp"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:padding="5dp"
+            android:layout_marginBottom="8dp"
             android:layout_alignParentEnd="true"
-            android:background="@android:color/white"
+            android:src="@drawable/ic_fullscreen_expand"
             android:layout_marginStart="5dp" />
 
 
@@ -73,7 +77,7 @@
         <ImageButton
             android:id="@id/exo_rew"
             style="@style/ExoMediaButton.Rewind"
-            android:layout_marginRight="50dp" />
+            android:layout_marginRight="35dp" />
 
         <!--<ImageButton android:id="@id/exo_shuffle"-->
         <!--style="@style/ExoMediaButton.Shuffle"/>-->
@@ -94,13 +98,9 @@
         <ImageButton
             android:id="@id/exo_ffwd"
             style="@style/ExoMediaButton.FastForward"
-            android:layout_marginLeft="50dp" />
+            android:layout_marginLeft="35dp" />
 
 
-        <!--<ImageButton android:id="@id/exo_next"-->
-        <!--style="@style/ExoMediaButton.Next"/>-->
 
     </LinearLayout>
-
-
 </LinearLayout>

@@ -9,14 +9,16 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 
+import com.google.android.exoplayer2.ExoPlayer;
 import com.google.android.exoplayer2.ui.SimpleExoPlayerView;
 import com.google.android.exoplayer2.util.Util;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import videoplayer.ngo.me.com.videoplayer.util.ExoplayerUtility;
+import videoplayer.ngo.me.com.videoplayer.my_exoplayer.ExoStateChanged;
+import videoplayer.ngo.me.com.videoplayer.my_exoplayer.ExoplayerUtility;
 
-public class VideoActivity extends AppCompatActivity {
+public class VideoActivity extends AppCompatActivity implements ExoStateChanged {
 
     @BindView(R.id.video_view)
     SimpleExoPlayerView exoPlayerView;
@@ -35,7 +37,7 @@ public class VideoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_video);
         ButterKnife.bind(this);
-        exoplayerUtility = new ExoplayerUtility(this, exoPlayerView);
+        exoplayerUtility = new ExoplayerUtility(this, exoPlayerView, this);
         initFullscreenDialog();
         initFullscreenButton();
 
@@ -57,8 +59,10 @@ public class VideoActivity extends AppCompatActivity {
         exoplayerUtility.hideSystemUi(exoPlayerView);
 
         if (isFullScreen) {
+            fullScreenButton.setImageDrawable(getDrawable(R.drawable.ic_fullscreen_skrink));
             openFullscreenDialog();
         } else {
+            fullScreenButton.setImageDrawable(getDrawable(R.drawable.ic_fullscreen_expand));
             closeFullscreenDialog();
         }
     }
@@ -89,7 +93,8 @@ public class VideoActivity extends AppCompatActivity {
     }
 
     private void initFullscreenDialog() {
-        fullScreenDialog = new Dialog(this, android.R.style.Theme_Black_NoTitleBar_Fullscreen) {
+        fullScreenDialog = new Dialog(this,
+                android.R.style.Theme_Black_NoTitleBar_Fullscreen) {
             public void onBackPressed() {
                 if (isFullScreen)
                     closeFullscreenDialog();
@@ -129,4 +134,19 @@ public class VideoActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    public void onExoPlayerStateChanged(int i) {
+        switch (i) {
+            case ExoPlayer.STATE_IDLE:
+                break;
+            case ExoPlayer.STATE_BUFFERING:
+                break;
+            case ExoPlayer.STATE_READY:
+                break;
+            case ExoPlayer.STATE_ENDED:
+                break;
+            default:
+                break;
+        }
+    }
 }

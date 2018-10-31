@@ -20,7 +20,7 @@
             android:background="@android:color/black"
             app:fastforward_increment="5000"
             app:rewind_increment="5000"
-            app:show_timeout="10000" />
+            app:show_timeout="3000" />
 
     </FrameLayout>
 
