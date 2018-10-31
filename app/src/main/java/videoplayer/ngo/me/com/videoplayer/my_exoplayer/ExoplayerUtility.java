@@ -72,19 +72,9 @@ public class ExoplayerUtility {
                     new DefaultRenderersFactory(context),
                     new DefaultTrackSelector(), new DefaultLoadControl());
 
-
-//            BandwidthMeter bandwidthMeter = new DefaultBandwidthMeter();
-//            TrackSelection.Factory videoTrackSelectionFactory =
-//                    new AdaptiveTrackSelection.Factory(bandwidthMeter);
-//            TrackSelector trackSelector = new DefaultTrackSelector(videoTrackSelectionFactory);
-
-
-//             exoPlayer = ExoPlayerFactory.newSimpleInstance(context, trackSelector);
              videoSource = new ExtractorMediaSource(Uri.parse(Constants.VIDEO_URL),
                     new MyExoPlayerCacheFactory(context, 200 * 1024 * 1024, 100 * 1024 * 1024), new DefaultExtractorsFactory(), null, null);
 
-//            Uri uri = Uri.parse(Constants.VIDEO_URL);
-            //           mediaSource = buildMediaSource(videoSource);
             exoPlayer.prepare(videoSource, true, false);
             exoPlayer.addListener(new Player.EventListener() {
                 @Override
@@ -189,7 +179,6 @@ public class ExoplayerUtility {
                 | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
                 | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
     }
-
 
     private MediaSource buildMediaSource(Uri uri) {
         return new ExtractorMediaSource.Factory(
