@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom"
+    android:background="#CC000000"
+    android:layoutDirection="ltr"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="10dp">
+
+        <TextView
+            android:id="@id/exo_position"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:includeFontPadding="false"
+            android:paddingTop="5dp"
+            android:layout_alignParentStart="true"
+            android:textColor="#FFBEBEBE"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <com.google.android.exoplayer2.ui.DefaultTimeBar
+            android:id="@id/exo_progress"
+            android:layout_width="match_parent"
+            android:layout_toEndOf="@+id/exo_position"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="70dp"
+            android:layout_marginStart="5dp"
+            android:clickable="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@id/exo_duration"
+            android:layout_toStartOf="@id/full_screen_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:includeFontPadding="false"
+            android:paddingTop="5dp"
+            android:textColor="#FFBEBEBE"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/full_screen_button"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginTop="5dp"
+            android:background="#fff"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="15dp" />
+
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:visibility="visible">
+
+        <!--<ImageButton android:id="@id/exo_prev"-->
+        <!--style="@style/ExoMediaButton.Previous"/>-->
+
+        <ImageButton
+            android:id="@id/exo_rew"
+            style="@style/ExoMediaButton.Rewind"
+            android:layout_marginRight="50dp" />
+
+        <!--<ImageButton android:id="@id/exo_shuffle"-->
+        <!--style="@style/ExoMediaButton.Shuffle"/>-->
+
+        <!--<ImageButton android:id="@id/exo_repeat_toggle"-->
+        <!--style="@style/ExoMediaButton"/>-->
+
+
+        <ImageButton
+            android:id="@id/exo_play"
+            style="@style/ExoMediaButton.Play" />
+
+
+        <ImageButton
+            android:id="@id/exo_pause"
+            style="@style/ExoMediaButton.Pause" />
+
+        <ImageButton
+            android:id="@id/exo_ffwd"
+            style="@style/ExoMediaButton.FastForward"
+            android:layout_marginLeft="50dp" />
+
+
+        <!--<ImageButton android:id="@id/exo_next"-->
+        <!--style="@style/ExoMediaButton.Next"/>-->
+
+    </LinearLayout>
+
+
+</LinearLayout>
