@@ -10,4 +10,5 @@ public class Constants {
     public final static String STATE_RESUME_WINDOW = "resumeWindow";
     public final static String STATE_RESUME_POSITION = "resumePosition";
     public final static String STATE_PLAYER_FULLSCREEN = "playerFullscreen";
+    public static final String STATE_PLAYER_READY = "statePlayerReady" ;
 }

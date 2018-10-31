@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
-        android:layout_marginRight="10dp">
+        android:layout_marginRight="15dp">
 
         <TextView
             android:id="@id/exo_position"
@@ -29,7 +29,7 @@
             android:layout_width="match_parent"
             android:layout_toEndOf="@+id/exo_position"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="70dp"
+            android:layout_marginEnd="55dp"
             android:layout_marginStart="5dp"
             android:clickable="false"
             android:focusable="false"
@@ -38,7 +38,7 @@
 
         <TextView
             android:id="@id/exo_duration"
-            android:layout_toStartOf="@id/full_screen_button"
+            android:layout_toStartOf="@id/exo_fullscreen"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:includeFontPadding="false"
@@ -48,13 +48,14 @@
             android:textStyle="bold" />
 
         <ImageView
-            android:id="@+id/full_screen_button"
-            android:layout_width="15dp"
-            android:layout_height="15dp"
+            android:id="@+id/exo_fullscreen"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:padding="2dp"
             android:layout_marginTop="5dp"
-            android:background="#fff"
             android:layout_alignParentEnd="true"
-            android:layout_marginStart="15dp" />
+            android:background="@android:color/white"
+            android:layout_marginStart="5dp" />
 
 
     </RelativeLayout>
